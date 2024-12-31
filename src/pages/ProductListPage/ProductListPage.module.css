@@ -1,0 +1,17 @@
+.page {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: white;
+}

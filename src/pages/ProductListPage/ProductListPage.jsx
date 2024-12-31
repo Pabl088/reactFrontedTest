@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ProductList from "../../components/ProductList/ProductList";
 import { fetchProducts } from "../../services/api";
+import styles from "./ProductListPage.module.css";
 
 function ProductListPage() {
   const [products, setProducts] = useState([]);
@@ -28,7 +29,10 @@ function ProductListPage() {
   };
 
   return (
-    <div>
+    <div className={styles.page}>
+      <div className={styles.header}>
+        <h1>Listado de Productos</h1>
+      </div>
       <SearchBar onSearch={handleSearch} />
       <ProductList products={filteredProducts} />
     </div>

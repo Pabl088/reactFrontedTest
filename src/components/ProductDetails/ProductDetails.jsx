@@ -1,4 +1,5 @@
 import { addToCart } from "../../services/api";
+import styles from "./ProductDetails.module.css";
 
 function ProductDetails({ product }) {
   if (!product) return <p>Loading...</p>;
@@ -26,11 +27,11 @@ function ProductDetails({ product }) {
   };
 
   return (
-    <div className="product-details">
-      <div className="image">
+    <div className={styles.productDetails}>
+      <div className={styles.image}>
         <img src={product.imgUrl} alt={product.name} />
       </div>
-      <div className="details">
+      <div className={styles.details}>
         <h2>Detalles del Producto</h2>
         <p>
           <strong>Marca:</strong> {product.brand}
@@ -57,7 +58,10 @@ function ProductDetails({ product }) {
           <strong>Batería:</strong> {product.battery}
         </p>
         <p>
-          <strong>Cámaras:</strong> {product.primaryCamera.join(", ")}
+          <strong>Cámara principal:</strong> {typeof product.primaryCamera === "string" ? product.primaryCamera : product.primaryCamera.join(", ")}
+        </p>
+        <p>
+          <strong>Cámara secundaria:</strong> {typeof product.secondaryCmera === "string" ? product.secondaryCmera : product.secondaryCmera.join(", ")}
         </p>
         <p>
           <strong>Dimensiones:</strong> {product.dimentions}
@@ -66,7 +70,7 @@ function ProductDetails({ product }) {
           <strong>Peso:</strong> {product.weight ? `${product.weight} g` : "No especificado"}
         </p>
       </div>
-      <div className="actions">
+      <div className={styles.actions}>
         <button onClick={handleAddToCart}>Añadir al carrito</button>
       </div>
     </div>

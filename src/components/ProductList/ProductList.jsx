@@ -1,8 +1,9 @@
 import ProductItem from "../ProductItem/ProductItem";
+import styles from "./ProductList.module.css";
 
 function ProductList({ products }) {
   return (
-    <div className="product-list">
+    <div className={styles.productList}>
       {products.map(product => (
         <ProductItem key={product.id} product={product} />
       ))}

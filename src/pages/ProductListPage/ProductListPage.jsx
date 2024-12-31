@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SearchBar from "../components/SearchBar";
-import ProductList from "../components/ProductList";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import ProductList from "../../components/ProductList/ProductList";
 import { fetchProducts } from "../../services/api";
 
 function ProductListPage() {

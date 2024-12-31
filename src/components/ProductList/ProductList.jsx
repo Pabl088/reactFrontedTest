@@ -1,4 +1,4 @@
-import ProductItem from "./ProductItem";
+import ProductItem from "../ProductItem/ProductItem";
 
 function ProductList({ products }) {
   return (

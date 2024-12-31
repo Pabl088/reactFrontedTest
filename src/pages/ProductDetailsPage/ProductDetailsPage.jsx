@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ProductDetails from "../components/ProductDetails";
+import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import { fetchProductDetails } from "../../services/api";
 
 function ProductDetailsPage() {

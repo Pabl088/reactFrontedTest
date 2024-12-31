@@ -1,5 +1,29 @@
+import { addToCart } from "../../services/api";
+
 function ProductDetails({ product }) {
   if (!product) return <p>Loading...</p>;
+
+  const handleAddToCart = async () => {
+    const selectedColor = product.options.colors[0]?.code || null;
+    const selectedStorage = product.options.storages[0]?.code || null;
+
+    if (!selectedColor || !selectedStorage) {
+      alert("No se puede añadir al carrito debido a datos faltantes.");
+      return;
+    }
+
+    try {
+      const response = await addToCart({
+        id: product.id,
+        colorCode: selectedColor,
+        storageCode: selectedStorage,
+      });
+      alert(`Producto añadido al carrito. Total en el carrito: ${response.count}`);
+    } catch (error) {
+      console.error("Error al añadir el producto al carrito:", error);
+      alert("Hubo un problema al añadir el producto al carrito.");
+    }
+  };
 
   return (
     <div className="product-details">
@@ -41,6 +65,9 @@ function ProductDetails({ product }) {
         <p>
           <strong>Peso:</strong> {product.weight ? `${product.weight} g` : "No especificado"}
         </p>
+      </div>
+      <div className="actions">
+        <button onClick={handleAddToCart}>Añadir al carrito</button>
       </div>
     </div>
   );

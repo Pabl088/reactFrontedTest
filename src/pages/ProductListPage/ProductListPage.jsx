@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import ProductList from "../components/ProductList";
-import { fetchProducts } from "../services/api";
+import { fetchProducts } from "../../services/api";
 
 function ProductListPage() {
   const [products, setProducts] = useState([]);

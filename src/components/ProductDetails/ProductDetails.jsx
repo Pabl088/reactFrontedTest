@@ -40,7 +40,7 @@ function ProductDetails({ product }) {
           <strong>Modelo:</strong> {product.model}
         </p>
         <p>
-          <strong>Precio:</strong> ${product.price}
+          <strong>Precio:</strong> {product.price ? "$ " + product.price : "No especificado"}
         </p>
         <p>
           <strong>CPU:</strong> {product.cpu}

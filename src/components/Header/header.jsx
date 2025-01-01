@@ -12,10 +12,10 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.logo}>
+      <Link to="/">
         <h1>MOVIL CENTER</h1>
       </Link>
-      <div className={styles.nav}>
+      <div className={styles.cart}>
         <span>Carrito: {cartCount} items</span>
       </div>
     </header>

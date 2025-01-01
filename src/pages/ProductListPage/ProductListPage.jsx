@@ -30,9 +30,6 @@ function ProductListPage() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.header}>
-        <h1>Listado de Productos</h1>
-      </div>
       <SearchBar onSearch={handleSearch} />
       <ProductList products={filteredProducts} />
     </div>

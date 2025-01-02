@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { loadCartCount } from "../../utils/storage";
 import styles from "./Header.module.css";
 
-function Header() {
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    setCartCount(loadCartCount());
-  }, []);
-
+function Header({ cartCount }) {
   return (
     <header className={styles.header}>
       <Link to="/">

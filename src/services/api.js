@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { saveToCache, loadFromCache } from '../utils/storage';
-import { saveCartCount, loadCartCount } from '../utils/storage';
 
 const API_BASE_URL = 'https://itx-frontend-test.onrender.com/api';
 
@@ -32,6 +31,5 @@ export const fetchProductDetails = async (id) => {
 
 export const addToCart = async (data) => {
     const response = await axios.post(`${API_BASE_URL}/cart`, data);
-    saveCartCount(response.data.count);
     return response.data;
 };

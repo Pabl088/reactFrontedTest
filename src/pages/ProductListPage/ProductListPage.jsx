@@ -15,7 +15,8 @@ function ProductListPage() {
         setProducts(data);
         setFilteredProducts(data);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error obteniendo productos:", error);
+        alert("Error obteniendo productos. Por favor, inténtelo de nuevo más tarde.");
       }
     };
 
@@ -31,7 +32,7 @@ function ProductListPage() {
   return (
     <div className={styles.page}>
       <SearchBar onSearch={handleSearch} />
-      <ProductList products={filteredProducts} />
+      {products.length > 0 ? <ProductList products={filteredProducts} /> : <p className={styles.loadingMessage}>Cargando productos...</p>}
     </div>
   );
 }

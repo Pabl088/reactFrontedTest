@@ -4,19 +4,13 @@ export const saveToCache = (key, value) => {
 };
 
 export const loadFromCache = (key, maxAge = 3600000) => {
+    if (typeof localStorage === "undefined") return null;
+
     const data = JSON.parse(localStorage.getItem(key));
     if (data && (Date.now() - data.timestamp) < maxAge) {
         return data.value;
     }
+    localStorage.removeItem(key);
     return null;
-};
-
-export const saveCartCount = (count) => {
-    localStorage.setItem('cartCount', count);
-};
-
-export const loadCartCount = () => {
-    const count = localStorage.getItem('cartCount');
-    return count ? parseInt(count, 10) : 0;
 };
 

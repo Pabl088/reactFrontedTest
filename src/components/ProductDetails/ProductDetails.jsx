@@ -3,10 +3,10 @@ import { addToCart } from "../../services/api";
 import styles from "./ProductDetails.module.css";
 
 function ProductDetails({ product, setCartCount }) {
-  if (!product) return <p>Cargando...</p>;
-
   const [selectedColor, setSelectedColor] = useState(product.options.colors[0]?.code);
   const [selectedStorage, setSelectedStorage] = useState(product.options.storages[0]?.code);
+
+  if (!product) return <p>Cargando...</p>;
 
   const handleAddToCart = async () => {
     if (!selectedColor || !selectedStorage) {
@@ -23,7 +23,7 @@ function ProductDetails({ product, setCartCount }) {
       setCartCount(response.count);
       alert(`Producto añadido al carrito. Total en el carrito: ${response.count}`);
     } catch (error) {
-      alert("Hubo un problema al añadir el producto al carrito.");
+      alert(`Hubo un problema al añadir el producto al carrito. ${error}`);
     }
   };
 
